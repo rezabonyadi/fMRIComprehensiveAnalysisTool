@@ -1,6 +1,8 @@
 function settings=loadSettings()
 %% General settings
 settings.dataRoot='D:\Maryam\Exercise\'; % Root of the data that inludes fmri raw data and behavioral data
+
+
 % settings.fMRIDataFolder='fMRIData\';
 settings.fMRIRawData='fmriData\raw\'; % raw fMRI
 settings.fMRIPreprocessedData='fmriData\Preprocessed\'; % where to save preprocesses
