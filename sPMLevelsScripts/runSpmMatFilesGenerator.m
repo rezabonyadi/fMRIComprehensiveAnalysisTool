@@ -1,6 +1,7 @@
 function settings=runSpmMatFilesGenerator(settings)
 subjectsIDs=settings.subjectsNames;
 toRemoveSubs=zeros(1,length(settings.subjectsNames));
+codeDir=cd;
 
 parfor i = 1:length(subjectsIDs) 
     subject=subjectsIDs{i};
@@ -14,7 +15,7 @@ parfor i = 1:length(subjectsIDs)
         disp(['Subject ' subject ' is removed: SPM Mat']);
     end;
 end; 
-
+cd(codeDir);
 settings=handleMyErrors(toRemoveSubs,settings,'SPM Mat');
 
 

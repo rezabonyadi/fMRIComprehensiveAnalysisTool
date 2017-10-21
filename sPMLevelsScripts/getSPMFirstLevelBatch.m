@@ -79,6 +79,10 @@ for runIdx = 1:size(runs, 1)
     files = spm_select('ExtFPList', [dirInfo.rootDir dirInfo.preprocessedDataDir...
         subject dirInfo.runName num2str(runIdx)], dirInfo.nameRegEx, 1:numScans);
 
+    if(isempty(files))
+        disp('MRI preprocessed files to generate SPM is empty! Check the addresses.');
+    end;
+    
     jobs{1}.stats{1}.fmri_spec.sess(runIdxSpm).scans = cellstr(files);
     jobs{1}.stats{1}.fmri_spec.sess(runIdxSpm).cond = struct('name', {}, 'onset', {}, 'duration', {}, 'tmod', {}, 'pmod', {});
     jobs{1}.stats{1}.fmri_spec.sess(runIdxSpm).multi = cellstr([outputDir dirInfo.matPrefix '_' num2str(subject) '_' num2str(runIdx) '.mat']);

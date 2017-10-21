@@ -12,9 +12,9 @@ for i = 1:length(settings.subjectsNames)
         spm_spm(SPM);
     catch mess
         toRemoveSubs(i)=1;
-        disp(['Subject ' subjectRea ' is removed: GLM']);
+        disp(['Subject ' subject ' is removed: GLM']);
     end;
 end;
+cd(codeDir);
 settings=handleMyErrors(toRemoveSubs,settings,'GLM');
 
-cd(codeDir);
